@@ -1,0 +1,11 @@
+User-agent: *
+Allow: /
+
+# Block payment/checkout page from indexing
+Disallow: /payment
+
+# Block 404 page
+Disallow: /404
+
+# Sitemap location
+Sitemap: https://allpvausa.com/sitemap.xml

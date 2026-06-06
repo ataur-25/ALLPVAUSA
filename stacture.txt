@@ -1,0 +1,193 @@
+Project Structure & Dependencies (A to Z)
+===========================================
+Last Updated: 2026-05-24
+
+1. Libraries & Versions Used
+----------------------------
+Based on package.json, here are the libraries and their versions:
+
+Dependencies (Main Packages):
+- react (^19.2.6)              : The core React library for building user interfaces.
+- react-dom (^19.2.6)          : Entry point for DOM and server renderers for React.
+- react-router-dom (^7.15.1)   : Library used for routing and multi-page navigation.
+- framer-motion (^12.40.0)     : Used for creating smooth animations and transitions.
+- react-icons (^5.6.0)         : Provides a collection of popular icons (FontAwesome, Material, etc.).
+- lucide-react (^1.16.0)       : Additional icon library with clean, consistent SVG icons.
+- clsx (^2.1.1)                : A tiny utility for conditionally joining class names.
+- tailwind-merge (^3.6.0)      : Merges Tailwind CSS classes without style conflicts.
+- qrcode.react (^4.2.0)        : React component for generating QR codes.
+- @vercel/speed-insights (^2.0.0) : Vercel analytics for performance monitoring.
+
+DevDependencies (Tools & Plugins):
+- vite (^8.0.12)               : Fast frontend build tool and development server.
+- @vitejs/plugin-react (^6.0.1): Vite plugin for React support.
+- tailwindcss (^4.3.0)         : Utility-first CSS framework for rapid UI development.
+- @tailwindcss/vite (^4.3.0)   : Vite plugin for Tailwind CSS integration.
+- @types/react (^19.2.14)      : TypeScript types for React.
+- @types/react-dom (^19.2.3)   : TypeScript types for React DOM.
+- eslint (^10.3.0) & plugins   : Used for linting and enforcing code quality.
+- globals (^17.6.0)            : Global variables for ESLint environments.
+
+
+2. Project Folder & File Structure (What is inside what)
+--------------------------------------------------------
+
+ALLPVAUSA/
+|-- package.json              -> Contains metadata, dependencies, and scripts for the project.
+|-- package-lock.json         -> Locks the exact versions of dependencies installed.
+|-- vite.config.js            -> Configuration file for Vite.
+|-- eslint.config.js          -> Configuration for ESLint (code linting).
+|-- index.html                -> Main HTML file. The entry point of the React app (contains <div id="root">).
+|-- stacture.txt              -> This file. Documents project structure and dependencies.
+|
+|-- public/                   -> Static assets served directly (no processing by Vite).
+|   |-- favicon.svg           -> Website favicon icon.
+|   |-- icons.svg             -> SVG icon sprite file.
+|
+|-- src/                      -> All source code for the React application.
+    |-- main.jsx              -> Main React entry point. Imports App.jsx and mounts it to the DOM.
+    |-- App.jsx               -> Root component. Handles all routing, themes, and overall app structure.
+    |-- index.css             -> Global CSS file. Includes Tailwind CSS directives and global variables.
+    |-- App.css               -> App-specific CSS styles.
+    |
+    |-- assets/               -> Images and static files used inside React components.
+    |   |-- allpvausa.png     -> Main logo image.
+    |   |-- hero.png          -> Image used in the Hero section.
+    |   |-- react.svg         -> React logo image.
+    |   |-- vite.svg          -> Vite logo image.
+    |
+    |-- components/           -> Reusable UI components used across multiple pages.
+    |   |-- Navbar.jsx        -> Navigation bar with links and multi-level dropdown menus.
+    |   |-- SectionWrapper.jsx-> Wrapper component for consistent section layout/padding.
+    |   |-- FloatingContact.jsx -> Floating contact/action button (e.g., WhatsApp or chat widget).
+    |   |
+    |   |-- checkout/         -> Components related to the checkout/payment process.
+    |   |   |-- CheckoutButtons.jsx -> Payment method buttons.
+    |   |   |-- CouponInput.jsx     -> Input field for discount coupons.
+    |   |   |-- PriceSummary.jsx    -> Displays the order summary and total price.
+    |   |   |-- PurchaseModal.jsx   -> Modal for completing the purchase.
+    |   |   |-- QuantitySelector.jsx-> Component to select quantity of accounts.
+    |
+    |-- context/              -> Global state management using React Context API.
+    |   |-- ThemeContext.jsx  -> Manages Light/Dark mode state and provides it to the entire app.
+    |
+    |-- layouts/              -> Layout components that wrap page content.
+    |   |-- MainLayout.jsx    -> Contains Navbar, page content (children), and Footer together.
+    |
+    |-- pages/                -> Page components corresponding to different routes.
+    |   |-- Home.jsx          -> The landing/home page, assembles all home sections.
+    |   |-- ServicePage.jsx   -> Dynamic page for displaying service details based on URL params.
+    |   |-- NotFound.jsx      -> 404 Error page for unknown routes.
+    |   |
+    |   |-- Bank/             -> Pages for Bank & Payment account services.
+    |   |   |-- Alipay.jsx       -> Alipay account service page.
+    |   |   |-- Bluebird.jsx     -> Bluebird account service page.
+    |   |   |-- CashApp.jsx      -> Cash App account service page.
+    |   |   |-- Chime.jsx        -> Chime account service page.
+    |   |   |-- Coinbase.jsx     -> Coinbase account service page.
+    |   |   |-- Go2Bank.jsx      -> Go2Bank account service page.
+    |   |   |-- Neteller.jsx     -> Neteller account service page.
+    |   |   |-- NeverPay.jsx     -> NeverPay account service page.
+    |   |   |-- PayPal.jsx       -> PayPal account service page (fully detailed).
+    |   |   |-- Payeer.jsx       -> Payeer account service page.
+    |   |   |-- Payoneer.jsx     -> Payoneer account service page.
+    |   |   |-- PerfectMoney.jsx -> Perfect Money account service page.
+    |   |   |-- Skrill.jsx       -> Skrill account service page.
+    |   |   |-- Stripe.jsx       -> Stripe account service page.
+    |   |   |-- USBank.jsx       -> US Bank account service page.
+    |   |   |-- Venmo.jsx        -> Venmo account service page.
+    |   |   |-- WebMoney.jsx     -> WebMoney account service page.
+    |   |   |-- Wise.jsx         -> Wise account service page.
+    |   |   |-- Zelle.jsx        -> Zelle account service page.
+    |   |
+    |   |-- Crypto/           -> Pages for Cryptocurrency account services.
+    |   |   |-- Binance.jsx      -> Binance account service page.
+    |   |   |-- CryptoCom.jsx    -> Crypto.com account service page.
+    |   |   |-- Paxful.jsx       -> Paxful account service page.
+    |   |   |-- RedotPay.jsx     -> RedotPay account service page.
+    |   |   |-- SoFi.jsx         -> SoFi account service page.
+    |   |
+    |   |-- Social/           -> Pages for Social Media account services.
+    |   |   |-- Airbnb.jsx       -> Airbnb account service page.
+    |   |   |-- Facebook.jsx     -> Facebook account service page.
+    |   |   |-- FacebookAds.jsx  -> Facebook Ads account service page.
+    |   |   |-- GoogleVoice.jsx  -> Google Voice account service page.
+    |   |   |-- Instagram.jsx    -> Instagram account service page.
+    |   |   |-- LinkedIn.jsx     -> LinkedIn account service page.
+    |   |   |-- Telegram.jsx     -> Telegram account service page.
+    |   |   |-- TextNow.jsx      -> TextNow account service page.
+    |   |
+    |   |-- Mail/             -> Pages for Email account services.
+    |   |   |-- EduMail.jsx      -> Edu Mail (.edu email) account service page.
+    |   |   |-- Gmail.jsx        -> Gmail account service page.
+    |   |   |-- Yahoo.jsx        -> Yahoo Mail account service page.
+    |   |
+    |   |-- Payment/          -> Pages for Payment processing services.
+    |   |   |-- Pay.jsx          -> General payment/checkout page or component.
+    |
+    |-- sections/             -> Individual sections used inside the Home page.
+    |   |-- Hero.jsx          -> Top hero/banner section of the home page.
+    |   |-- Features.jsx      -> Section displaying key features and benefits.
+    |   |-- Testimonials.jsx  -> Section displaying customer reviews and testimonials.
+    |   |-- Pricing.jsx       -> Section showing available pricing plans.
+    |   |-- FAQ.jsx           -> Frequently Asked Questions section.
+    |   |-- Contact.jsx       -> Contact form and information section.
+    |   |-- Footer.jsx        -> Bottom footer section with links and copyright.
+    |
+    |-- hooks/                -> Custom React hooks (currently empty — reserved for future use).
+    |-- routes/               -> Route configuration files (currently empty — routing handled in App.jsx).
+    |-- services/             -> API call functions and business logic (currently empty).
+    |-- utils/                -> Helper/utility functions (currently empty).
+
+
+3. Route Map (URL -> Component)
+--------------------------------
+/                          -> Home.jsx          (Landing page)
+/service/:id               -> ServicePage.jsx   (Dynamic service detail page)
+/*                         -> NotFound.jsx      (404 Error page)
+
+-- Bank / Payment Routes --
+/bank/paypal               -> Bank/PayPal.jsx
+/bank/cashapp              -> Bank/CashApp.jsx
+/bank/coinbase             -> Bank/Coinbase.jsx
+/bank/alipay               -> Bank/Alipay.jsx
+/bank/bluebird             -> Bank/Bluebird.jsx
+/bank/chime                -> Bank/Chime.jsx
+/bank/go2bank              -> Bank/Go2Bank.jsx
+/bank/neteller             -> Bank/Neteller.jsx
+/bank/neverpay             -> Bank/NeverPay.jsx
+/bank/payeer               -> Bank/Payeer.jsx
+/bank/payoneer             -> Bank/Payoneer.jsx
+/bank/perfectmoney         -> Bank/PerfectMoney.jsx
+/bank/skrill               -> Bank/Skrill.jsx
+/bank/stripe               -> Bank/Stripe.jsx
+/bank/usbank               -> Bank/USBank.jsx
+/bank/venmo                -> Bank/Venmo.jsx
+/bank/webmoney             -> Bank/WebMoney.jsx
+/bank/wise                 -> Bank/Wise.jsx
+/bank/zelle                -> Bank/Zelle.jsx
+
+-- Crypto Routes --
+/crypto/binance            -> Crypto/Binance.jsx
+/crypto/cryptocom          -> Crypto/CryptoCom.jsx
+/crypto/paxful             -> Crypto/Paxful.jsx
+/crypto/redotpay           -> Crypto/RedotPay.jsx
+/crypto/sofi               -> Crypto/SoFi.jsx
+
+-- Social Routes --
+/social/airbnb             -> Social/Airbnb.jsx
+/social/facebook           -> Social/Facebook.jsx
+/social/facebookads        -> Social/FacebookAds.jsx
+/social/googlevoice        -> Social/GoogleVoice.jsx
+/social/instagram          -> Social/Instagram.jsx
+/social/linkedin           -> Social/LinkedIn.jsx
+/social/telegram           -> Social/Telegram.jsx
+/social/textnow            -> Social/TextNow.jsx
+
+-- Mail Routes --
+/mail/gmail                -> Mail/Gmail.jsx
+/mail/yahoo                -> Mail/Yahoo.jsx
+/mail/edumail              -> Mail/EduMail.jsx
+
+-- Payment Routes --
+/payment/pay               -> Payment/Pay.jsx
