@@ -67,7 +67,7 @@ const TermsConditions = lazy(
 const ContactUs = lazy(() => import("./pages/Quick Links/ContactUs"));
 
 // Payment
-const Pay = lazy(() => import("./pages/Payment/pay"));
+const Pay = lazy(() => import("./pages/Payment/Pay"));
 const NotFound = lazy(() => import("./pages/NotFound"));
 
 function App() {
